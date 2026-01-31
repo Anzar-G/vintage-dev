@@ -108,72 +108,146 @@ export function Pricing() {
       </motion.div>
 
       {view === 'cards' && (
-        <div className="grid gap-8 md:grid-cols-3">
-          {pricingPlans.map((plan, i) => (
-            <motion.div
-              key={plan.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={cn(
-                'relative flex flex-col rounded-2xl border bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-strong dark:bg-slate-800/50 dark:border-slate-700',
-                plan.highlight &&
-                  'border-primary-500 ring-2 ring-primary-500/20 md:-translate-y-2 md:shadow-strong',
-              )}
+        <>
+          {/* Mobile: horizontal scroll paket */}
+          <div className="md:hidden -mx-4 px-4">
+            <div
+              className="flex gap-4 overflow-x-auto pb-2 pt-1 snap-x snap-mandatory scroll-smooth"
+              style={{ WebkitOverflowScrolling: 'touch' }}
+              role="list"
             >
-              {plan.badge && (
-                <span
+              {pricingPlans.map((plan) => (
+                <div
+                  key={plan.id}
                   className={cn(
-                    'absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-semibold',
-                    plan.badge === 'popular' && 'bg-primary-600 text-white',
-                    plan.badge === 'best-value' && 'bg-amber-500 text-white',
+                    'relative flex min-w-[85vw] max-w-[85vw] shrink-0 snap-center flex-col rounded-2xl border bg-white p-6 shadow-soft dark:border-slate-700 dark:bg-slate-800/50',
+                    plan.highlight && 'border-primary-500 ring-2 ring-primary-500/20',
                   )}
                 >
-                  {plan.badge === 'popular' ? 'Paling Populer' : 'Best Value'}
-                </span>
-              )}
-              <div className="mb-6">
-                <h3 className="font-display text-xl font-bold text-slate-900 dark:text-slate-100">
-                  {plan.name}
-                </h3>
-                <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-                  {plan.description}
-                </p>
-                <p className="mt-4 flex items-baseline gap-1">
-                  <span className="font-display text-3xl font-bold text-slate-900 dark:text-slate-100">
-                    Rp {formatPrice(plan.price)}
-                  </span>
-                  <span className="text-slate-500">/ project</span>
-                </p>
-              </div>
-              <ul className="flex-1 space-y-3">
-                {plan.features.map((f, j) => (
-                  <li
-                    key={j}
-                    className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300"
+                  {plan.badge && (
+                    <span
+                      className={cn(
+                        'absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-semibold',
+                        plan.badge === 'popular' && 'bg-primary-600 text-white',
+                        plan.badge === 'best-value' && 'bg-amber-500 text-white',
+                      )}
+                    >
+                      {plan.badge === 'popular' ? 'Paling Populer' : 'Best Value'}
+                    </span>
+                  )}
+                  <div className="mb-6">
+                    <h3 className="font-display text-xl font-bold text-slate-900 dark:text-slate-100">
+                      {plan.name}
+                    </h3>
+                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                      {plan.description}
+                    </p>
+                    <p className="mt-4 flex items-baseline gap-1">
+                      <span className="font-display text-3xl font-bold text-slate-900 dark:text-slate-100">
+                        Rp {formatPrice(plan.price)}
+                      </span>
+                      <span className="text-slate-500">/ project</span>
+                    </p>
+                  </div>
+                  <ul className="flex-1 space-y-3">
+                    {plan.features.map((f, j) => (
+                      <li
+                        key={j}
+                        className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300"
+                      >
+                        <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary-600 dark:text-primary-400" />
+                        {f.tooltip ? (
+                          <Tooltip text={f.tooltip}>
+                            <span>{f.text}</span>
+                          </Tooltip>
+                        ) : (
+                          <span>{f.text}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button
+                    variant={plan.highlight ? 'primary' : 'outline'}
+                    className="mt-6 w-full"
+                    onClick={() => scrollToContact(plan.id)}
                   >
-                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary-600 dark:text-primary-400" />
-                    {f.tooltip ? (
-                      <Tooltip text={f.tooltip}>
-                        <span>{f.text}</span>
-                      </Tooltip>
-                    ) : (
-                      <span>{f.text}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-              <Button
-                variant={plan.highlight ? 'primary' : 'outline'}
-                className="mt-6 w-full"
-                onClick={() => scrollToContact(plan.id)}
+                    Pilih Paket
+                  </Button>
+                </div>
+              ))}
+            </div>
+            <p className="mt-3 text-center text-xs text-slate-500 dark:text-slate-400">
+              Geser untuk lihat paket lain
+            </p>
+          </div>
+          {/* Desktop: grid */}
+          <div className="hidden gap-8 md:grid md:grid-cols-3">
+            {pricingPlans.map((plan, i) => (
+              <motion.div
+                key={plan.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className={cn(
+                  'relative flex flex-col rounded-2xl border bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-strong dark:bg-slate-800/50 dark:border-slate-700',
+                  plan.highlight &&
+                    'border-primary-500 ring-2 ring-primary-500/20 md:-translate-y-2 md:shadow-strong',
+                )}
               >
-                Pilih Paket
-              </Button>
-            </motion.div>
-          ))}
-        </div>
+                {plan.badge && (
+                  <span
+                    className={cn(
+                      'absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-semibold',
+                      plan.badge === 'popular' && 'bg-primary-600 text-white',
+                      plan.badge === 'best-value' && 'bg-amber-500 text-white',
+                    )}
+                  >
+                    {plan.badge === 'popular' ? 'Paling Populer' : 'Best Value'}
+                  </span>
+                )}
+                <div className="mb-6">
+                  <h3 className="font-display text-xl font-bold text-slate-900 dark:text-slate-100">
+                    {plan.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                    {plan.description}
+                  </p>
+                  <p className="mt-4 flex items-baseline gap-1">
+                    <span className="font-display text-3xl font-bold text-slate-900 dark:text-slate-100">
+                      Rp {formatPrice(plan.price)}
+                    </span>
+                    <span className="text-slate-500">/ project</span>
+                  </p>
+                </div>
+                <ul className="flex-1 space-y-3">
+                  {plan.features.map((f, j) => (
+                    <li
+                      key={j}
+                      className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300"
+                    >
+                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary-600 dark:text-primary-400" />
+                      {f.tooltip ? (
+                        <Tooltip text={f.tooltip}>
+                          <span>{f.text}</span>
+                        </Tooltip>
+                      ) : (
+                        <span>{f.text}</span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  variant={plan.highlight ? 'primary' : 'outline'}
+                  className="mt-6 w-full"
+                  onClick={() => scrollToContact(plan.id)}
+                >
+                  Pilih Paket
+                </Button>
+              </motion.div>
+            ))}
+          </div>
+        </>
       )}
 
       {view === 'table' && (

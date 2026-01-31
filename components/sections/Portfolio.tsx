@@ -348,27 +348,61 @@ export function Portfolio() {
           ))}
         </div>
       ) : (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence mode="popLayout">
+        <>
+          {/* Mobile: horizontal scroll dengan snap */}
+          <div className="md:hidden -mx-4 px-4">
             {filtered.length === 0 ? (
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="col-span-full py-12 text-center text-slate-500"
-              >
-                Tidak ada project yang cocok.
-              </motion.p>
+              <p className="py-12 text-center text-slate-500">Tidak ada project yang cocok.</p>
             ) : (
-              filtered.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  onClick={() => openModal(project)}
-                />
-              ))
+              <div
+                className="flex gap-4 overflow-x-auto pb-2 pt-1 snap-x snap-mandatory scroll-smooth"
+                style={{ WebkitOverflowScrolling: 'touch' }}
+                role="list"
+                aria-label="Daftar project"
+              >
+                {filtered.map((project) => (
+                  <div
+                    key={project.id}
+                    className="min-w-[85vw] max-w-[85vw] shrink-0 snap-center sm:min-w-[70vw] sm:max-w-[70vw]"
+                    role="listitem"
+                  >
+                    <ProjectCard
+                      project={project}
+                      onClick={() => openModal(project)}
+                    />
+                  </div>
+                ))}
+              </div>
             )}
-          </AnimatePresence>
-        </div>
+            {filtered.length > 1 && (
+              <p className="mt-3 text-center text-xs text-slate-500 dark:text-slate-400">
+                Geser untuk lihat project lain
+              </p>
+            )}
+          </div>
+          {/* Desktop: grid */}
+          <div className="hidden grid-cols-2 gap-6 md:grid lg:grid-cols-3">
+            <AnimatePresence mode="popLayout">
+              {filtered.length === 0 ? (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="col-span-full py-12 text-center text-slate-500"
+                >
+                  Tidak ada project yang cocok.
+                </motion.p>
+              ) : (
+                filtered.map((project) => (
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    onClick={() => openModal(project)}
+                  />
+                ))
+              )}
+            </AnimatePresence>
+          </div>
+        </>
       )}
 
       <AnimatePresence>

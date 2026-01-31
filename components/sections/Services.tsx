@@ -20,7 +20,44 @@ export function Services() {
             Specializing in end-to-end development to bring your digital product ideas to life.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {/* Mobile: horizontal scroll layanan */}
+        <div className="md:hidden -mx-4 px-4">
+          <div
+            className="flex gap-4 overflow-x-auto pb-2 pt-1 snap-x snap-mandatory scroll-smooth"
+            style={{ WebkitOverflowScrolling: 'touch' }}
+            role="list"
+          >
+            {services.map((service) => {
+              const Icon = iconMap[service.icon];
+              return (
+                <div
+                  key={service.id}
+                  className="min-w-[80vw] max-w-[80vw] shrink-0 snap-center first:pl-0"
+                  role="listitem"
+                >
+                  <Card
+                    className="flex h-full flex-col gap-4 border-slate-200 bg-white p-6 shadow-soft dark:border-slate-700 dark:bg-slate-800/50"
+                  >
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-900/50 dark:text-primary-400">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <h3 className="text-xl font-bold">{service.title}</h3>
+                      <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                        {service.description}
+                      </p>
+                    </div>
+                  </Card>
+                </div>
+              );
+            })}
+          </div>
+          <p className="mt-3 text-center text-xs text-slate-500 dark:text-slate-400">
+            Geser untuk lihat layanan
+          </p>
+        </div>
+        {/* Desktop: grid */}
+        <div className="hidden grid-cols-1 gap-6 md:grid md:grid-cols-3">
           {services.map((service) => {
             const Icon = iconMap[service.icon];
             return (
