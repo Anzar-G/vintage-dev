@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -32,6 +32,7 @@ export function Contact() {
 
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
     setValue,
@@ -271,19 +272,21 @@ export function Contact() {
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-              <input
-                id="terms_agreed"
-                type="checkbox"
-                {...register('terms_agreed', {
-                  setValueAs: (v) => {
-                    if (v && typeof v === 'object' && 'target' in v) {
-                      return (v as { target: { checked: boolean } }).target.checked;
-                    }
-                    return v === true || v === 'on';
-                  },
-                })}
-                className="mt-1 h-4 w-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500 dark:border-slate-600 dark:bg-slate-800"
-                aria-invalid={!!errors.terms_agreed}
+              <Controller
+                name="terms_agreed"
+                control={control}
+                render={({ field }) => (
+                  <input
+                    id="terms_agreed"
+                    type="checkbox"
+                    checked={!!field.value}
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    onBlur={field.onBlur}
+                    ref={field.ref}
+                    className="mt-1 h-4 w-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500 dark:border-slate-600 dark:bg-slate-800"
+                    aria-invalid={!!errors.terms_agreed}
+                  />
+                )}
               />
               <label htmlFor="terms_agreed" className="text-sm text-slate-600 dark:text-slate-400">
                 Saya telah membaca dan menyetujui{' '}
@@ -304,19 +307,21 @@ export function Contact() {
               </p>
             )}
             <div className="flex items-start gap-3">
-              <input
-                id="privacy_agreed"
-                type="checkbox"
-                {...register('privacy_agreed', {
-                  setValueAs: (v) => {
-                    if (v && typeof v === 'object' && 'target' in v) {
-                      return (v as { target: { checked: boolean } }).target.checked;
-                    }
-                    return v === true || v === 'on';
-                  },
-                })}
-                className="mt-1 h-4 w-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500 dark:border-slate-600 dark:bg-slate-800"
-                aria-invalid={!!errors.privacy_agreed}
+              <Controller
+                name="privacy_agreed"
+                control={control}
+                render={({ field }) => (
+                  <input
+                    id="privacy_agreed"
+                    type="checkbox"
+                    checked={!!field.value}
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    onBlur={field.onBlur}
+                    ref={field.ref}
+                    className="mt-1 h-4 w-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500 dark:border-slate-600 dark:bg-slate-800"
+                    aria-invalid={!!errors.privacy_agreed}
+                  />
+                )}
               />
               <label htmlFor="privacy_agreed" className="text-sm text-slate-600 dark:text-slate-400">
                 Saya setuju data dikirim untuk keperluan penawaran dan komunikasi project.{' '}
