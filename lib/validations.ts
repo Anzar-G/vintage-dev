@@ -15,12 +15,19 @@ export const contactSchema = z.object({
   budget_range: z.string().optional(),
   description: z.string().min(20, 'Deskripsi minimal 20 karakter'),
   deadline: z.string().optional(),
-  privacy_agreed: z.literal(true, {
-    errorMap: () => ({ message: 'Anda harus menyetujui kebijakan privasi' }),
-  }),
-  terms_agreed: z.literal(true, {
-    errorMap: () => ({ message: 'Anda harus membaca dan menyetujui Syarat & Ketentuan' }),
-  }),
+  // Checkbox bisa kirim true, "on", atau nilai lain; normalisasi dulu baru cek harus true
+  privacy_agreed: z.preprocess(
+    (v) => (v === true || v === 'on' || v === 1 ? true : v),
+    z.literal(true, {
+      errorMap: () => ({ message: 'Anda harus menyetujui kebijakan privasi' }),
+    }),
+  ),
+  terms_agreed: z.preprocess(
+    (v) => (v === true || v === 'on' || v === 1 ? true : v),
+    z.literal(true, {
+      errorMap: () => ({ message: 'Anda harus membaca dan menyetujui Syarat & Ketentuan' }),
+    }),
+  ),
 });
 
 export type ContactSchema = z.infer<typeof contactSchema>;

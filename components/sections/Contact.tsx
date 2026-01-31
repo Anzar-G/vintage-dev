@@ -275,7 +275,12 @@ export function Contact() {
                 id="terms_agreed"
                 type="checkbox"
                 {...register('terms_agreed', {
-                  setValueAs: (v) => v === true || v === 'on',
+                  setValueAs: (v) => {
+                    if (v && typeof v === 'object' && 'target' in v) {
+                      return (v as ChangeEvent<HTMLInputElement>).target.checked;
+                    }
+                    return v === true || v === 'on';
+                  },
                 })}
                 className="mt-1 h-4 w-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500 dark:border-slate-600 dark:bg-slate-800"
                 aria-invalid={!!errors.terms_agreed}
@@ -303,7 +308,12 @@ export function Contact() {
                 id="privacy_agreed"
                 type="checkbox"
                 {...register('privacy_agreed', {
-                  setValueAs: (v) => v === true || v === 'on',
+                  setValueAs: (v) => {
+                    if (v && typeof v === 'object' && 'target' in v) {
+                      return (v as ChangeEvent<HTMLInputElement>).target.checked;
+                    }
+                    return v === true || v === 'on';
+                  },
                 })}
                 className="mt-1 h-4 w-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500 dark:border-slate-600 dark:bg-slate-800"
                 aria-invalid={!!errors.privacy_agreed}
