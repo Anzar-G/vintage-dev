@@ -277,7 +277,7 @@ export function Contact() {
                 {...register('terms_agreed', {
                   setValueAs: (v) => {
                     if (v && typeof v === 'object' && 'target' in v) {
-                      return (v as ChangeEvent<HTMLInputElement>).target.checked;
+                      return (v as { target: { checked: boolean } }).target.checked;
                     }
                     return v === true || v === 'on';
                   },
@@ -310,7 +310,7 @@ export function Contact() {
                 {...register('privacy_agreed', {
                   setValueAs: (v) => {
                     if (v && typeof v === 'object' && 'target' in v) {
-                      return (v as ChangeEvent<HTMLInputElement>).target.checked;
+                      return (v as { target: { checked: boolean } }).target.checked;
                     }
                     return v === true || v === 'on';
                   },
