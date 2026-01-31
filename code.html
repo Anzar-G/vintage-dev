@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Freelance Web Developer Landing Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1e3fae",
+                        "accent": "#f97316",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121520",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#121317] dark:text-white transition-colors duration-300">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#dcdee5] dark:border-gray-800 px-10 py-4 bg-white dark:bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-4 text-primary dark:text-white">
+<div class="size-6 bg-primary rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">code</span>
+</div>
+<h2 class="text-xl font-black leading-tight tracking-tight">DevPortfolio</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#portfolio">Portfolio</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#services">Services</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#pricing">Pricing</a>
+</nav>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-opacity-90 transition-all">
+<span class="truncate">Hire Me</span>
+</button>
+</div>
+</header>
+<main class="flex flex-col items-center">
+<div class="max-w-[1200px] w-full px-4 md:px-10 lg:px-20">
+<!-- Hero Section -->
+<section class="py-16 md:py-24 @container">
+<div class="flex flex-col gap-10 @[864px]:flex-row items-center">
+<div class="flex flex-col gap-6 flex-1 text-left">
+<div class="flex flex-col gap-4">
+<h1 class="text-4xl md:text-6xl font-black leading-tight tracking-[-0.033em] text-[#121317] dark:text-white">
+                                        Full-Stack <span class="text-primary">Web Developer</span> Building Scalable Digital Experiences
+                                    </h1>
+<h2 class="text-lg font-normal leading-relaxed text-gray-600 dark:text-gray-400 max-w-[600px]">
+                                        Helping brands and businesses build modern, high-performance web applications with clean code and exceptional UI/UX. Specialized in React, Node, and Cloud Architecture.
+                                    </h2>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-base font-bold shadow-lg hover:shadow-primary/20 transition-all">
+                                        Hire Me
+                                    </button>
+<button class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-accent text-white text-base font-bold shadow-lg hover:shadow-accent/20 transition-all">
+                                        View Work
+                                    </button>
+</div>
+</div>
+<div class="w-full @[864px]:w-[45%] aspect-square bg-center bg-no-repeat bg-cover rounded-xl shadow-2xl relative overflow-hidden ring-4 ring-white dark:ring-gray-800" data-alt="Professional headshot of a smiling web developer" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBAF1ANb7r5joLnth61xwPB0QRGjJh0W72KxbbslYj9pXE3dJbjN_yqraVUfH_8mtzfDtDPta-QsYRvFpzpx-bandcC6aRiqn_Uy0w4zrv1qb0qVO-vSyELcCDcePC18nof_IQZjxrxYBo3l9kjiQvMA-qJlMGgCa6_sGgrKdjq_-2lwmrUK04RZ7Xn6O4FSoKZmaFiksdkf2-Q-FMoXp6Ikvov9zbkoU-g6yqL3GJXHBDHRF6nLR0_uAca61PeX5d72ndKO2ZKybc");'>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+</div>
+</div>
+</section>
+<!-- Core Services -->
+<section class="py-20 border-t border-gray-100 dark:border-gray-800" id="services">
+<div class="flex flex-col gap-12">
+<div class="flex flex-col gap-4">
+<h2 class="text-3xl font-black leading-tight tracking-tight">Core Services</h2>
+<p class="text-gray-600 dark:text-gray-400 text-lg">Specializing in end-to-end development to bring your digital product ideas to life.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="flex flex-col gap-4 rounded-xl border border-[#dcdee5] dark:border-gray-800 bg-white dark:bg-gray-900 p-8 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-xl font-bold">Frontend Dev</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Responsive, pixel-perfect interfaces using React, Next.js, and modern CSS frameworks.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-[#dcdee5] dark:border-gray-800 bg-white dark:bg-gray-900 p-8 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">database</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-xl font-bold">Backend Systems</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Designing scalable Node.js APIs, authentication, and robust PostgreSQL/NoSQL databases.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-[#dcdee5] dark:border-gray-800 bg-white dark:bg-gray-900 p-8 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">design_services</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-xl font-bold">UI/UX Strategy</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Creating intuitive user journeys and aesthetic designs focused on conversion and usability.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section class="py-20" id="portfolio">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="text-3xl font-black leading-tight tracking-tight mb-2">My Work</h2>
+<p class="text-gray-600 dark:text-gray-400">Featured projects showcasing technical depth and design quality.</p>
+</div>
+<a class="text-primary font-bold text-sm flex items-center gap-1 hover:underline" href="#">
+                                View Archive <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Project 1 -->
+<div class="group flex flex-col gap-4">
+<div class="w-full aspect-[4/3] bg-center bg-no-repeat bg-cover rounded-xl overflow-hidden ring-1 ring-black/5 dark:ring-white/10" data-alt="Modern e-commerce dashboard interface" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDx5XXoEm07CIyN5fltRwbz5c5HAcsyX_lDk5NV0PqC6VssJwxOEkkWepW_WjiN-02zcrgP8cW-PvJBA-uvtuoLAGlsecquWNcHpB1sRIfJyDsEKKHyk-Ji12lz0jOvkmK5WYh7Bz2JTjsylDD_VaRSV-cjvDnv07JXtRgDUmC841V2Y5uHmN1e8jrqbSVpVgvwToPCivQDa1iV18gULJApa6rWNc3HTIqMqn1HMDk5ufEhUPo4Vqz_O2bxlaQlpBkQs_cdW9NcMko");'>
+<div class="w-full h-full bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-primary px-4 py-2 rounded-lg font-bold text-sm">View Case Study</button>
+</div>
+</div>
+<div>
+<div class="flex gap-2 mb-2">
+<span class="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-[10px] font-bold uppercase tracking-wider rounded">React</span>
+<span class="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-[10px] font-bold uppercase tracking-wider rounded">Stripe</span>
+</div>
+<h3 class="text-lg font-bold">EcoShop Platform</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Full-scale e-commerce with real-time inventory and headless CMS.</p>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group flex flex-col gap-4">
+<div class="w-full aspect-[4/3] bg-center bg-no-repeat bg-cover rounded-xl overflow-hidden ring-1 ring-black/5 dark:ring-white/10" data-alt="Real-time analytics dashboard with graphs" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnRR6BpkF9FR5H6RFmOmJZsEPPKING5_ZmohrY1lKpERTBslIbAHgdDgNph3k0GalUNiCqrfT-1XdHR0LlMFd6wJkYBRXPfOdB99yT2cVUIPdrqMjbWb3K0aqljMTYH-a6fhAmZbPfVDC2fHl612LX5miUnoUL4uNRlXgnakrEk9hg8sLD0vuyRBBU9cVf-lklQVm1O1fGhuboj35FNGWinUAxIbJdysusuung2cgmGsIOqcmx-cZG5Z6HYDyiSWM2_3ZJrkWhN9Q");'>
+<div class="w-full h-full bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-primary px-4 py-2 rounded-lg font-bold text-sm">View Case Study</button>
+</div>
+</div>
+<div>
+<div class="flex gap-2 mb-2">
+<span class="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-[10px] font-bold uppercase tracking-wider rounded">Next.js</span>
+<span class="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-[10px] font-bold uppercase tracking-wider rounded">TypeScript</span>
+</div>
+<h3 class="text-lg font-bold">Insight Analytics</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-1">SaaS dashboard for monitoring web vitals and user behavior.</p>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="group flex flex-col gap-4">
+<div class="w-full aspect-[4/3] bg-center bg-no-repeat bg-cover rounded-xl overflow-hidden ring-1 ring-black/5 dark:ring-white/10" data-alt="Sleek dark mode mobile app banking screens" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlBqUhwGzUTuwwmhBlwjRc_DsFkBLcsyL8zxMSRRxffG4GmisiEM8tO93xkgdOo_lrcU269x1UIF81ivCl6OVXqil6StQYTOk8eQTKej83DUZgk73F9zIx6GnhdT5FtrjIUp79X3mS6Jd0Qx_5N1hek1zZeX4YZcQgnff369o4_Rj5Ace-WbjqDl1gAD8X036qzgw7ECxPWliYD0mm0yjU9F55IEGimkp6m32GjLrhP8aaZ9lxWOmhS66jchzgpUEJ-sANGGBaXn4");'>
+<div class="w-full h-full bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-primary px-4 py-2 rounded-lg font-bold text-sm">View Case Study</button>
+</div>
+</div>
+<div>
+<div class="flex gap-2 mb-2">
+<span class="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-[10px] font-bold uppercase tracking-wider rounded">Vue.js</span>
+<span class="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-[10px] font-bold uppercase tracking-wider rounded">AWS</span>
+</div>
+<h3 class="text-lg font-bold">FinTrack Mobile</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Personal finance management with bank sync and secure API.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-20 border-t border-gray-100 dark:border-gray-800" id="pricing">
+<div class="text-center flex flex-col gap-4 mb-16">
+<h2 class="text-3xl font-black">Choose Your Plan</h2>
+<p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">Flexible engagement models designed for startups and established businesses alike.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Bronze -->
+<div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-8 rounded-xl flex flex-col gap-6 shadow-sm">
+<div class="flex flex-col gap-2">
+<h3 class="text-lg font-bold text-gray-500">Bronze</h3>
+<p class="text-3xl font-black">$1,499<span class="text-sm font-normal text-gray-500"> / project</span></p>
+<p class="text-sm text-gray-500">Essential landing page.</p>
+</div>
+<ul class="flex flex-col gap-3">
+<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Custom Landing Page</li>
+<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Mobile Responsive</li>
+<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> SEO Optimization</li>
+<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 1 Week Support</li>
+</ul>
+<button class="mt-auto w-full py-3 rounded-lg border-2 border-primary text-primary font-bold hover:bg-primary/5 transition-colors">Choose Bronze</button>
+</div>
+<!-- Silver (Featured) -->
+<div class="bg-white dark:bg-gray-900 border-2 border-primary p-8 rounded-xl flex flex-col gap-6 shadow-xl relative scale-105">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+                                    Most Popular
+                                </div>
+<div class="flex flex-col gap-2">
+<h3 class="text-lg font-bold text-primary">Silver</h3>
+<p class="text-3xl font-black">$3,499<span class="text-sm font-normal text-gray-500"> / project</span></p>
+<p class="text-sm text-gray-500">Full business website with CMS.</p>
+</div>
+<ul class="flex flex-col gap-3">
+<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Up to 5 Pages</li>
+<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> CMS Integration (Sanity/Strapi)</li>
+<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Advanced Animations</li>
+<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Contact Form Integration</li>
+<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 1 Month Support</li>
+</ul>
+<button class="mt-auto w-full py-3 rounded-lg bg-primary text-white font-bold hover:bg-opacity-90 transition-all">Choose Silver</button>
+</div>
+<!-- Gold -->
+<div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-8 rounded-xl flex flex-col gap-6 shadow-sm">
+<div class="flex flex-col gap-2">
+<h3 class="text-lg font-bold text-gray-500">Gold</h3>
+<p class="text-3xl font-black">$7,999<span class="text-sm font-normal text-gray-500"> / project</span></p>
+<p class="text-sm text-gray-500">Custom e-commerce / SaaS App.</p>
+</div>
+<ul class="flex flex-col gap-3">
+<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Full Application Architecture</li>
+<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> Payment/Subscription Logic</li>
+<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> User Authentication (Auth0/NextAuth)</li>
+<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span> 3 Months Support</li>
+</ul>
+<button class="mt-auto w-full py-3 rounded-lg border-2 border-primary text-primary font-bold hover:bg-primary/5 transition-colors">Choose Gold</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Section -->
+<footer class="w-full bg-white dark:bg-background-dark border-t border-gray-200 dark:border-gray-800 py-12 mt-12">
+<div class="max-w-[1200px] mx-auto px-4 md:px-10 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-4 text-primary dark:text-white">
+<div class="size-6 bg-primary rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">code</span>
+</div>
+<h2 class="text-xl font-black leading-tight tracking-tight">DevPortfolio</h2>
+</div>
+<p class="text-gray-500 text-sm">© 2024 DevPortfolio. All rights reserved. Crafted for speed &amp; performance.</p>
+<div class="flex gap-6">
+<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</div>
+</body></html>
