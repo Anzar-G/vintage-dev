@@ -7,6 +7,19 @@ import { ScrollProgress } from '@/components/ui/ScrollProgress';
 // Fonts: use system-ui for build without network; optionally add next/font in layout when online
 const fontVariables = '';
 
+/** Pastikan URL valid agar build tidak error "Invalid URL" (mis. env kosong di Vercel). */
+function getMetadataBase(): URL {
+  const url = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
+    try {
+      return new URL(url);
+    } catch {
+      // fallback jika URL tidak valid
+    }
+  }
+  return new URL('https://example.com');
+}
+
 export const metadata: Metadata = {
   title: {
     default: 'Portfolio & Jasa Web Development | Landing Page & Aplikasi Web',
@@ -32,7 +45,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'),
+  metadataBase: getMetadataBase(),
 };
 
 export default function RootLayout({

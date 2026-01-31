@@ -1,8 +1,13 @@
 import { MetadataRoute } from 'next';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+function getBaseUrl(): string {
+  const url = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (url && (url.startsWith('http://') || url.startsWith('https://'))) return url;
+  return 'https://example.com';
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = getBaseUrl();
   return [
     {
       url: baseUrl,
