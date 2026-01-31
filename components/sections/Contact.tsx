@@ -274,7 +274,9 @@ export function Contact() {
               <input
                 id="terms_agreed"
                 type="checkbox"
-                {...register('terms_agreed')}
+                {...register('terms_agreed', {
+                  setValueAs: (v) => v === true || v === 'on',
+                })}
                 className="mt-1 h-4 w-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500 dark:border-slate-600 dark:bg-slate-800"
                 aria-invalid={!!errors.terms_agreed}
               />
@@ -300,7 +302,9 @@ export function Contact() {
               <input
                 id="privacy_agreed"
                 type="checkbox"
-                {...register('privacy_agreed')}
+                {...register('privacy_agreed', {
+                  setValueAs: (v) => v === true || v === 'on',
+                })}
                 className="mt-1 h-4 w-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500 dark:border-slate-600 dark:bg-slate-800"
                 aria-invalid={!!errors.privacy_agreed}
               />
