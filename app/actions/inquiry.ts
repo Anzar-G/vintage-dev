@@ -68,6 +68,7 @@ export async function submitInquiry(
     description: formData.get('description') as string,
     deadline: (formData.get('deadline') as string) || undefined,
     privacy_agreed: formData.get('privacy_agreed') === 'on',
+    terms_agreed: formData.get('terms_agreed') === 'on',
   };
 
   const parsed = contactSchema.safeParse(raw);
@@ -82,24 +83,24 @@ export async function submitInquiry(
 
   if (supabase) {
     const insertPayload = {
-    inquiry_number: inquiryNumber,
-    name: parsed.data.name,
-    email: parsed.data.email,
-    whatsapp: parsed.data.whatsapp,
-    package: parsed.data.package,
-    budget_range: parsed.data.budget_range ?? null,
-    description: parsed.data.description,
-    deadline: parsed.data.deadline || null,
-    status: 'new',
-    ip_address: ip !== 'unknown' ? ip : null,
-    user_agent: userAgent,
-    utm_source: null,
-    utm_medium: null,
-    utm_campaign: null,
-  };
-  const { error } = await supabase.from('inquiries').insert(insertPayload);
+      inquiry_number: inquiryNumber,
+      name: parsed.data.name,
+      email: parsed.data.email,
+      whatsapp: parsed.data.whatsapp,
+      package: parsed.data.package,
+      budget_range: parsed.data.budget_range ?? null,
+      description: parsed.data.description,
+      deadline: parsed.data.deadline || null,
+      status: 'new',
+      ip_address: ip !== 'unknown' ? ip : null,
+      user_agent: userAgent,
+      utm_source: null,
+      utm_medium: null,
+      utm_campaign: null,
+    };
+    const { error } = await supabase.from('inquiries').insert(insertPayload);
 
-  if (error) {
+    if (error) {
       console.error('Supabase inquiry insert error:', error);
       return {
         success: false,

@@ -66,6 +66,7 @@ export function Contact() {
       formData.set('description', data.description);
       if (data.deadline) formData.set('deadline', data.deadline);
       formData.set('privacy_agreed', data.privacy_agreed ? 'on' : '');
+      formData.set('terms_agreed', data.terms_agreed ? 'on' : '');
 
       const result = await submitInquiry(formData);
 
@@ -138,7 +139,7 @@ export function Contact() {
                   'block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100',
                   errors.name && 'border-red-500 focus:border-red-500 focus:ring-red-500/20',
                 )}
-                aria-invalid={!!errors.name}
+
               />
               {errors.name && (
                 <p className="mt-1.5 text-sm text-red-600 dark:text-red-400" role="alert">
@@ -159,7 +160,7 @@ export function Contact() {
                   'block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100',
                   errors.email && 'border-red-500 focus:border-red-500 focus:ring-red-500/20',
                 )}
-                aria-invalid={!!errors.email}
+
               />
               {errors.email && (
                 <p className="mt-1.5 text-sm text-red-600 dark:text-red-400" role="alert">
@@ -182,7 +183,7 @@ export function Contact() {
                 'block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100',
                 errors.whatsapp && 'border-red-500 focus:border-red-500 focus:ring-red-500/20',
               )}
-              aria-invalid={!!errors.whatsapp}
+
             />
             {errors.whatsapp && (
               <p className="mt-1.5 text-sm text-red-600 dark:text-red-400" role="alert">
@@ -203,7 +204,7 @@ export function Contact() {
                 'block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base text-slate-900 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100',
                 errors.package && 'border-red-500 focus:border-red-500 focus:ring-red-500/20',
               )}
-              aria-invalid={!!errors.package}
+
             >
               <option value="">Pilih paket</option>
               {PACKAGE_OPTIONS.map((opt) => (
@@ -249,7 +250,7 @@ export function Contact() {
                 'block w-full rounded-lg border-2 border-slate-300 bg-white px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100',
                 errors.description && 'border-red-500 focus:border-red-500 focus:ring-red-500/20',
               )}
-              aria-invalid={!!errors.description}
+
             />
             {errors.description && (
               <p className="mt-1.5 text-sm text-red-600 dark:text-red-400" role="alert">
@@ -284,7 +285,7 @@ export function Contact() {
                     onBlur={field.onBlur}
                     ref={field.ref}
                     className="mt-1 h-4 w-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500 dark:border-slate-600 dark:bg-slate-800"
-                    aria-invalid={!!errors.terms_agreed}
+
                   />
                 )}
               />
@@ -319,7 +320,7 @@ export function Contact() {
                     onBlur={field.onBlur}
                     ref={field.ref}
                     className="mt-1 h-4 w-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500 dark:border-slate-600 dark:bg-slate-800"
-                    aria-invalid={!!errors.privacy_agreed}
+
                   />
                 )}
               />
@@ -354,6 +355,6 @@ export function Contact() {
           </Button>
         </form>
       </motion.div>
-    </section>
+    </section >
   );
 }
